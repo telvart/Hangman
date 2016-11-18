@@ -4,9 +4,9 @@
 #include "Hangman.h"
 class GameDriver
 {
+
 public:
-  GameDriver();
-  ~GameDriver();
+
   void run(std::string newWord);
 
 private:
@@ -14,5 +14,3 @@ private:
 };
 
 #endif
-
-//

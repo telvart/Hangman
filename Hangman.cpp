@@ -1,34 +1,92 @@
 #include "Hangman.h"
-
+#include <iostream>
 
 Hangman::Hangman(std::string newWord)
   :secretWord(newWord), MAX_MISSES_ALLOWED(7)
 {
   missedMarkers = new char[MAX_MISSES_ALLOWED];
+  disguisedWord = secretWord;
+  guessCount = 0;
+  missesCount = 0;
+  wordGuessed = false;
   initializeWords();
 }
 
 
-Hangman::~Hangman()
-{
-
-}
-
 bool Hangman::guessCharacter(char c)
 {
-  return true;
+  guessCount++;
+  for(int i=0; i<secretWord.length(); i++)
+  {
+    if(secretWord[i] == c)
+    {
+      updateDisguisedWord(c);
+      return true;
+    }
+  }
+
+  updateMissedMarkers();
+  missesCount++;
+  return false;
+}
+
+bool Hangman::guessWord(std::string word)
+{
+  guessCount++;
+  wordGuessed = true;
+  if(secretWord == word)
+  {
+    disguisedWord = word;
+    return true;
+  }
+  return false;
+}
+
+bool Hangman::areWordGuessesAllowed()
+{
+  return !wordGuessed;
+}
+
+void Hangman::updateDisguisedWord(char c)
+{
+  for(int i=0; i<disguisedWord.length(); i++)
+  {
+    if(secretWord[i] == c)
+    {
+      disguisedWord[i] = c;
+    }
+  }
+}
+
+void Hangman::updateMissedMarkers()
+{
+  missedMarkers[missesCount] = 'X';
 }
 
 bool Hangman::isGameOver()
 {
+  //in either case if game is over, return true
+  if(missesCount == MAX_MISSES_ALLOWED || isFound())
+  {
+    return true;
+  }
   return false;
 }
 
 bool Hangman::isFound()
 {
-  return false;
+  //returns true when no ?'s left in disguisedWord'
+  for(int i=0; i<disguisedWord.length(); i++)
+  {
+    if(disguisedWord[i] == '?')
+    {
+      return false;
+    }
+  }
+  return true;
 }
 
+//made myself to make life easier
 void Hangman::initializeWords()
 {
   //initialize missedMarkers
@@ -36,6 +94,7 @@ void Hangman::initializeWords()
   {
     missedMarkers[i] = '0';
   }
+  //initialize secretWord
   for(int i=0; i<secretWord.length(); i++)
   {
     if(secretWord[i] != ' ')

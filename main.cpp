@@ -32,6 +32,7 @@ int main(int argc, char* argv[])
 
   GameDriver* driver = new GameDriver();
   driver->run(getInitialWord(argc, argv));
+  std::cout<<"Thanks for playing!\n";
 
   delete driver;
 

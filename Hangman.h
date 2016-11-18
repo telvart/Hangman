@@ -5,15 +5,15 @@ class Hangman
 {
   public:
     Hangman(std::string newWord);
-    ~Hangman();
+
     bool guessCharacter(char c);
     bool guessWord(std::string word);
     bool areWordGuessesAllowed();
     bool isGameOver();
     bool isFound();
-    std::string getDisguisedWord();
     int getGuessCount();
     int getMissesCount();
+    std::string getDisguisedWord();
     std::string getMissedMarker();
 
   private:
@@ -26,6 +26,8 @@ class Hangman
     char* missedMarkers;
 
     void initializeWords();
+    void updateDisguisedWord(char c);
+    void updateMissedMarkers();
 
     bool wordGuessed;
 };
