@@ -4,7 +4,8 @@
 Hangman::Hangman(std::string newWord)
   :secretWord(newWord), MAX_MISSES_ALLOWED(7)
 {
-  //missedMarkers = new char[strlen(newWord)];
+  missedMarkers = new char[MAX_MISSES_ALLOWED];
+  initializeWords();
 }
 
 
@@ -30,6 +31,22 @@ bool Hangman::isFound()
 
 void Hangman::initializeWords()
 {
+  //initialize missedMarkers
+  for(int i=0; i<MAX_MISSES_ALLOWED; i++)
+  {
+    missedMarkers[i] = '0';
+  }
+  for(int i=0; i<secretWord.length(); i++)
+  {
+    if(secretWord[i] != ' ')
+    {
+      disguisedWord[i] = '?';
+    }
+    else
+    {
+      disguisedWord[i] = ' ';
+    }
+  }
 
 }
 

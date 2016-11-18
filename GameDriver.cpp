@@ -15,4 +15,5 @@ GameDriver::~GameDriver()
 void GameDriver::run(std::string newWord)
 {
     h = new Hangman(newWord);
+    std::cout<<h->getDisguisedWord();
 }
