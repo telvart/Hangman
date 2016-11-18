@@ -65,7 +65,7 @@ void Hangman::updateMissedMarkers()
 
 bool Hangman::isGameOver()
 {
-  //in either case if game is over, return true
+
   if(missesCount == MAX_MISSES_ALLOWED || isFound())
   {
     return true;
@@ -75,7 +75,7 @@ bool Hangman::isGameOver()
 
 bool Hangman::isFound()
 {
-  //returns true when no ?'s left in disguisedWord'
+
   for(int i=0; i<disguisedWord.length(); i++)
   {
     if(disguisedWord[i] == '?')
@@ -86,7 +86,6 @@ bool Hangman::isFound()
   return true;
 }
 
-//made myself to make life easier
 void Hangman::initializeWords()
 {
   //initialize missedMarkers
@@ -108,6 +107,8 @@ void Hangman::initializeWords()
   }
 
 }
+
+
 
 
 std::string Hangman::getDisguisedWord()

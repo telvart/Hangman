@@ -40,6 +40,11 @@ void GameDriver::run(std::string newWord)
             {
               break;
             }
+            else
+            {
+              std::cout<<guess<<" was not the secret word! better luck next time\n\n";
+              continue;
+            }
           }
           else
           {
@@ -47,9 +52,6 @@ void GameDriver::run(std::string newWord)
             continue;
           }
         }
-
-
-
 
         if(correctGuess)
         {
@@ -86,6 +88,3 @@ void GameDriver::run(std::string newWord)
 
     }while(goAgain != 'n');
 }
-
-
-//h->getGuessCount()     *(h).getGuessCount();
