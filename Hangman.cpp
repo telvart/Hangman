@@ -12,6 +12,11 @@ Hangman::Hangman(std::string newWord)
   initializeWords();
 }
 
+Hangman::~Hangman()
+{
+  delete[] missedMarkers;
+}
+
 
 bool Hangman::guessCharacter(char c)
 {

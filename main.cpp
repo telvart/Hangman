@@ -31,6 +31,10 @@ int main(int argc, char* argv[])
 
 
   GameDriver* driver = new GameDriver();
+  for(int i=0; i<100; i++)
+  {
+    std::cout<<"\n";
+  }
   driver->run(getInitialWord(argc, argv));
   std::cout<<"Thanks for playing!\n";
 

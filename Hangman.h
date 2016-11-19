@@ -5,6 +5,7 @@ class Hangman
 {
   public:
     Hangman(std::string newWord);
+    ~Hangman();
     bool guessCharacter(char c);
     bool guessWord(std::string word);
     bool areWordGuessesAllowed();

@@ -27,7 +27,7 @@ void GameDriver::run(std::string newWord)
         {
           correctGuess = h->guessCharacter(guess[0]);
         }
-        else if(guess.length()>1 && guess.length() < currentWord.length())
+        else if((guess.length()>1 && guess.length() < currentWord.length()) || guess.length() > currentWord.length())
         {
           std::cout<<"You tried to guess a word but it wasn't the correct length, try again\n\n";
           continue;
@@ -84,7 +84,16 @@ void GameDriver::run(std::string newWord)
       {
         std::cout<<"Enter a new secret word:\n";
         std::getline(std::cin, currentWord);
+        
       }
 
     }while(goAgain != 'n');
+}
+
+void GameDriver::print100Lines()
+{
+  for (int i=0; i<100; i++)
+  {
+    std::cout<<"\n";
+  }
 }

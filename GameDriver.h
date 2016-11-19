@@ -11,6 +11,7 @@ public:
 
 private:
   Hangman* h;
+  void print100Lines();
 };
 
 #endif
