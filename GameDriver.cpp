@@ -83,17 +83,10 @@ void GameDriver::run(std::string newWord)
       if(goAgain == 'y')
       {
         std::cout<<"Enter a new secret word:\n";
+        std::cin.ignore();
         std::getline(std::cin, currentWord);
-        
+
       }
 
     }while(goAgain != 'n');
-}
-
-void GameDriver::print100Lines()
-{
-  for (int i=0; i<100; i++)
-  {
-    std::cout<<"\n";
-  }
 }
